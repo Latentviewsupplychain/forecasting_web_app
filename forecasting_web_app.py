@@ -11,7 +11,7 @@ import streamlit as st
 
 
 # loading the saved model
-loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('C:/Users/rishabh.gupta/Desktop\model_deploy/model/trained_model.sav', 'rb'))
 
 
 # creating a function for Prediction
@@ -26,6 +26,8 @@ def forecast_prediction(input_data):
     input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
 
     prediction = loaded_model.predict(input_data_reshaped)
+    prediction = prediction.astype(int)
+    prediction = prediction[0]
     print(prediction)
     
     
@@ -61,12 +63,12 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Previous Shipment Quantity
     """)
-    Previous_shipment_quantity = st.text_input('Enter previous shipment quantity here')
+    Previous_shipment_quantity = st.text_input('Enter previous shipment quantity here',10)
     
     st.write("""
-    ### diff_delist_weeks
+    ### weeks_remaining_to_delist
     """)
-    diff_delist_weeks = st.slider('Select difference in delist weeks', value=16, min_value=1, max_value=65 ,step=4)
+    diff_delist_weeks = st.slider('Select number of weeks remaining to delist', value=16, min_value=1, max_value=65 ,step=4)
     
     
     st.write("""
@@ -77,13 +79,13 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Purchasing Manager Index
     """)
-    pmi = st.slider('Select pmi', value=57, min_value=55, max_value=60 ,step=1)
+    pmi = st.slider('Select pmi', value=57, min_value=0, max_value=100 ,step=10)
     
     
     st.write("""
     ### Counsumer Sentiment
     """)
-    consumer_sentiment = st.slider('Select consumer sentiment', value=58, min_value=50, max_value=68 ,step=2)
+    consumer_sentiment = st.slider('Select consumer sentiment', value=40, min_value=10, max_value=100 ,step=10)
     
     
     st.write("""
@@ -100,7 +102,7 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Interest Rate
     """)
-    intrest_rate = st.slider('Select interest rate', value=4, min_value=2, max_value=9, step=1)
+    intrest_rate = st.slider('Select interest rate', value=4, min_value=1, max_value=10, step=1)
     
     
     
@@ -118,20 +120,20 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Month End
     """)
-    Month_End = st.text_input("Enter 1 if it is a month end otherwise 0")
+    Month_End = st.text_input("Enter 1 if it is a month end otherwise 0",0)
     
     
     
     st.write("""
-    ### cpi natural gas
+    ### Cpi natural gas
     """)
-    cpi_natural_gas = st.slider('Select cpi', value=30, min_value=20, max_value=38, step=2)
+    cpi_natural_gas = st.slider('Select consumer price index', value=30, min_value=0, max_value=50, step=5)
     
     
     st.write("""
     ### Inflation
     """)
-    inflation = st.text_input('Enter inflation rate here',8)
+    inflation = st.text_input('Enter inflation rate here',6)
     
     
     st.write("""
@@ -142,12 +144,12 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Quarter End
     """)
-    Qrt_End = st.text_input("Enter 1 if it is a quarter end otherwise 0")
+    Qrt_End = st.text_input("Enter 1 if it is a quarter end otherwise 0",0)
     
     st.write("""
     ### Cpi food at home
     """)
-    cpi_food_at_home = st.slider('Select cpi', value=10, min_value=0, max_value=20, step=2)
+    cpi_food_at_home = st.slider('Select consumer price index', value=10, min_value=0, max_value=20, step=2)
     
     
     st.write("""
@@ -158,7 +160,7 @@ This app predicts your future forecasts. Just fill in the following information 
     st.write("""
     ### Cpi Energy
     """)
-    cpi_energy = st.slider('Select cpi', value=30, min_value=20, max_value=40, step=2)
+    cpi_energy = st.slider('Select consumer price index', value=30, min_value=20, max_value=40, step=2)
     
     
     
@@ -168,9 +170,10 @@ This app predicts your future forecasts. Just fill in the following information 
     
     # creating a button for Prediction
     
-    if st.button('Forecast Test Result'):
+    if st.button('Forecast Result'):
         Forecast = forecast_prediction([Cummulative_sum, Frequency, Previous_shipment_quantity, diff_delist_weeks, Recency, pmi, consumer_sentiment, Distributed_Promo_QTY,holiday_count,intrest_rate,Cash_Discount_Per_Case_Off_Invoice,retail_sales,Month_End,cpi_natural_gas,inflation,civil_unemployment,Qrt_End,cpi_food_at_home,Penetration_TPR,cpi_energy])
-        
+      
+    
         
     st.success(Forecast)
     
