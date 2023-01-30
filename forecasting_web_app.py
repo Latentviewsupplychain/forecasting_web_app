@@ -66,7 +66,7 @@ This app predicts your future forecasts. Just fill in the following information 
     Previous_shipment_quantity = st.text_input('Enter previous shipment quantity here',10)
     
     st.write("""
-    ### weeks_remaining_to_delist
+    ### Weeks remaining to delist
     """)
     diff_delist_weeks = st.slider('Select number of weeks remaining to delist', value=16, min_value=1, max_value=65 ,step=4)
     
