@@ -61,123 +61,123 @@ Simulate different scenarios by changing Markeing, Product and Economic Variable
 
         else:
         
-            Key_cat = st.selectbox('Select Product Id',(20220,20221,20222,20223,20224,20225,20226,20227,20228,20229,202220,202221,202222,202223,202224,
+            Key_cat = st.selectbox('Select product Id',(20220,20221,20222,20223,20224,20225,20226,20227,20228,20229,202220,202221,202222,202223,202224,
             ))
 
         
         
         
         st.write("""
-        ### cummulative sum
+        ### Cummulative sum
         """)
         cummulative_sum = st.slider('Sum of all shipment quantity before the current week', value=5000, min_value=1000, max_value=14000, step=1000)
         
         st.write("""
-        ### frequency
+        ### Frequency
         """)
-        frequency = st.slider('Frequency of non zero shipments', value=16, min_value=1, max_value=65 ,step=4)
+        frequency = st.slider('Select frequency of non zero shipments', value=16, min_value=1, max_value=65 ,step=4)
         
         st.write("""
-        ### recency
+        ### Recency
         """)
-        recency = st.slider('Number of days since a non zero shipment', value=24, min_value=1, max_value=100 ,step=8)
+        recency = st.slider('Select number of days since a non zero shipment', value=24, min_value=1, max_value=100 ,step=8)
         
         st.write("""
-        ### previous shipment quantity
+        ### Previous shipment quantity
         """)
-        previous_shipment_quantity = st.text_input('enter previous shipment quantity here',10)
+        previous_shipment_quantity = st.text_input('Enter previous shipment quantity of the selected product',10)
         
         st.write("""
-        ### weeks remaining to delist
+        ### Weeks remaining to delist
         """)
-        diff_delist_weeks = st.slider('select number of weeks remaining for a product to delist', value=16, min_value=1, max_value=65 ,step=4)
+        diff_delist_weeks = st.slider('Select number of weeks remaining for a product to delist', value=16, min_value=1, max_value=65 ,step=4)
 
 
     with st.expander("Economic Variables (click to expand)"):
         st.write("""
-        ### cpi natural gas
+        ### CPI natural gas
         """)
-        cpi_natural_gas = st.slider('select consumer price index', value=30, min_value=0, max_value=50, step=5)
+        cpi_natural_gas = st.slider('Select consumer price index', value=30, min_value=0, max_value=50, step=5)
         
         
         st.write("""
-        ### inflation
+        ### Inflation
         """)
-        inflation = st.text_input('enter inflation rate here',6)
+        inflation = st.text_input('Enter inflation rate here',6)
         
         
         st.write("""
-        ### civil unemployment
+        ### Civil unemployment
         """)
-        civil_unemployment = st.text_input('enter civil unemployment',4)
+        civil_unemployment = st.text_input('Enter civil unemployment',4)
         
         st.write("""
-        ### cpi food at home
+        ### CPI food at home
         """)
-        cpi_food_at_home = st.slider('select consumer price index', value=10, min_value=0, max_value=20, step=2)
+        cpi_food_at_home = st.slider('Select consumer price index', value=10, min_value=0, max_value=20, step=2)
         
         st.write("""
-        ### purchasing manager index
+        ### Purchasing manager index
         """)
-        pmi = st.slider('select pmi', value=57, min_value=0, max_value=100 ,step=10)
+        pmi = st.slider('Select PMI', value=57, min_value=0, max_value=100 ,step=10)
         
         
         st.write("""
-        ### counsumer sentiment
+        ### Counsumer sentiment
         """)
-        consumer_sentiment = st.slider('select consumer sentiment', value=40, min_value=10, max_value=100 ,step=10)
+        consumer_sentiment = st.slider('Select consumer sentiment', value=40, min_value=10, max_value=100 ,step=10)
         
         st.write("""
-        ### retail sales
+        ### Retail sales
         """)
-        retail_sales = st.slider('select retail sales', value=550000, min_value=500000, max_value=620000, step=20000)
+        retail_sales = st.slider('Select retail sales', value=550000, min_value=500000, max_value=620000, step=20000)
         st.write("""
-        ### interest rate
+        ### Interest rate
         """)
-        intrest_rate = st.slider('select interest rate', value=4, min_value=1, max_value=10, step=1)
+        intrest_rate = st.slider('Select interest rate', value=4, min_value=1, max_value=10, step=1)
 
                 
         st.write("""
-        ### cpi energy
+        ### CPI energy
         """)
-        cpi_energy = st.slider('select consumer price index', value=30, min_value=20, max_value=40, step=2)
+        cpi_energy = st.slider('Select consumer price index', value=30, min_value=20, max_value=40, step=2)
         
         
 
         
-    with st.expander("Market Variables (click to expand)"):
+    with st.expander("Marketing Variables (click to expand)"):
         
         st.write("""
-        ### cash discount per case off invoice
+        ### Cash discount per case off invoice
         """)
-        cash_discount_per_case_off_invoice = st.text_input('enter cash discount here',0)
+        cash_discount_per_case_off_invoice = st.text_input('Enter cash discount here',0)
 
         
 
         st.write("""
-        ### distributed promo quantity
+        ### Distributed promo quantity
         """)
-        distributed_promo_qty = st.text_input('enter distributed promo quantity here',10)
+        distributed_promo_qty = st.text_input('Enter distributed promo quantity here',10)
         
         st.write("""
-        ### holiday count
+        ### Holiday count
         """)
-        holiday_count = st.text_input('enter number of holidays here',2)
+        holiday_count = st.text_input('Enter number of holidays here',2)
         
         st.write("""
-        ### month end
+        ### Month end
         """)
-        month_end = st.text_input("enter 1 if it is a month end otherwise 0",0)
+        month_end = st.text_input("Enter 1 if it is a month end otherwise 0",0)
 
         st.write("""
-        ### quarter end
+        ### Quarter end
         """)
-        qrt_end = st.text_input("enter 1 if it is a quarter end otherwise 0",0)
+        qrt_end = st.text_input("Enter 1 if it is a quarter end otherwise 0",0)
         
         st.write("""
-        ### penetration tpr
+        ### Penetration tpr
         """)
-        penetration_tpr = st.text_input('enter penetration tpr value',0)
+        penetration_tpr = st.text_input('Enter penetration tpr value',0)
     
     # code for prediction
     forecast = ''
