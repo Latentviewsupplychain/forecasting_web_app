@@ -70,7 +70,7 @@ Simulate different scenarios by changing Markeing, Product and Economic Variable
         st.write("""
         ### cummulative sum
         """)
-        cummulative_sum = st.slider('Sum all shipment quantity before the current week', value=5000, min_value=1000, max_value=14000, step=1000)
+        cummulative_sum = st.slider('Sum of all shipment quantity before the current week', value=5000, min_value=1000, max_value=14000, step=1000)
         
         st.write("""
         ### frequency
