@@ -123,7 +123,7 @@ Simulate different scenarios by changing Markeing, Product and Economic Variable
         
         
         st.write("""
-        ### Counsumer sentiment
+        ### Consumer sentiment
         """)
         consumer_sentiment = st.slider('Select consumer sentiment', value=40, min_value=10, max_value=100 ,step=10)
         
